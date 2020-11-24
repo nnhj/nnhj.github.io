@@ -21,9 +21,9 @@
   </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title">
+<meta property="og:title" content="Tinkle Tinkle Little Star">
 <meta property="og:url" content="https://nnhj.github.io/index.html">
-<meta property="og:site_name">
+<meta property="og:site_name" content="Tinkle Tinkle Little Star">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="NNHJ">
 <meta name="twitter:card" content="summary">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title></title>
+  <title>Tinkle Tinkle Little Star</title>
   
 
 
@@ -92,7 +92,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title"></h1>
+      <h1 class="site-title">Tinkle Tinkle Little Star</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -145,7 +145,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nnhj.github.io/2020/11/05/week5/">
+    <link itemprop="mainEntityOfPage" href="https://nnhj.github.io/2020/11/24/about-me/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -154,12 +154,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
+      <meta itemprop="name" content="Tinkle Tinkle Little Star">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/05/week5/" class="post-title-link" itemprop="url">C语言基础 week5</a>
+            <a href="/2020/11/24/about-me/" class="post-title-link" itemprop="url">about me</a>
         </h2>
 
         <div class="post-meta">
@@ -168,16 +168,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-11-05 17:08:12" itemprop="dateCreated datePublished" datetime="2020-11-05T17:08:12+08:00">2020-11-05</time>
+              <time title="创建时间：2020-11-24 21:18:47 / 修改时间：21:20:29" itemprop="dateCreated datePublished" datetime="2020-11-24T21:18:47+08:00">2020-11-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-22 14:53:36" itemprop="dateModified" datetime="2020-11-22T14:53:36+08:00">2020-11-22</time>
-              </span>
 
           
 
@@ -190,91 +184,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>1.求素数和</strong>  </p>
-<blockquote>
-<p>题目内容：<br>我们认为2是第一个素数，3是第二个素数，5是第三个素数，依次类推。<br>现在，给定两个整数n和m，0&lt;n&lt;=m&lt;=200，你的程序要计算第n个素数到第m个素数之间所有的素数的和，包括第n个素数和第m个素数。<br>输入格式:<br>两个整数，第一个表示n，第二个表示m。<br>输出格式：<br>一个**<em>整数**</em>，表示第n个素数到第m个素数之间所有的素数的和，包括第n个素数和第m个素数。<br>输入样例：<br>2 4<br>输出样例：<br>15<br>时间限制：500ms 内存限制：32000kb</p>
-</blockquote>
-<p><strong>思路</strong>：判断一个数是否为素数，是则计数器加一，否则继续判断。当计数器大于或等于n时，开始计算素数的和。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;   </span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> n;                  <span class="comment">//起始素数个数</span></span><br><span class="line">    <span class="keyword">int</span> m;                  <span class="comment">//终止素数个数</span></span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;            <span class="comment">//存储素数和</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(cnt&lt;m)</span><br><span class="line">    &#123;   </span><br><span class="line">        <span class="keyword">int</span> prime = <span class="number">1</span>;          <span class="comment">//素数标志</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;num;i++)      <span class="comment">//判断当前数值是否为素数</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(num%i==<span class="number">0</span>)        <span class="comment">//不是素数，则标志位置零，跳出循环</span></span><br><span class="line">            &#123;</span><br><span class="line">                prime = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(prime==<span class="number">1</span>)            <span class="comment">//是素数</span></span><br><span class="line">        &#123;</span><br><span class="line">            cnt++;              <span class="comment">//计数器加一</span></span><br><span class="line">            <span class="keyword">if</span>(cnt&gt;=n)          <span class="comment">//当计数器大于或等于n时，开始计算素数的和</span></span><br><span class="line">            &#123;</span><br><span class="line">                sum+=num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        num++; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.念数字</strong>  </p>
-<blockquote>
-<p>题目内容：<br>你的程序要读入一个整数，范围是[-100000,100000]。然后，用汉语拼音将这个整数的每一位输出出来。<br>如输入1234，则输出：<br>yi er san si<br>注意，每个字的拼音之间有一个空格，但是最后的字后面没有空格。当遇到负数时，在输出的开头加上“fu”，如-2341输出为：<br>fu er san si yi<br>输入格式:<br>一个整数，范围是[-100000,100000]。<br>输出格式：<br>表示这个整数的每一位数字的汉语拼音，每一位数字的拼音之间以空格分隔，末尾没有空格。<br>输入样例：<br>-30<br>输出样例：<br>fu san ling<br>时间限制：500ms内存限制：32000kb</p>
-</blockquote>
-<p><strong>思路</strong>：<br>1.先判断输入n的数n是否为负数，是则先输出“fu”，不是则继续执行接下来的步骤。<br>2.判断n的位数。<br>3.提取n的最高位，并用对应的拼音输出。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> n;      <span class="comment">//获取要读的数</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">int</span> cnt2 = <span class="number">0</span>;       <span class="comment">//计算算到第几位(含符号位)</span></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">0</span>)                 <span class="comment">//判断n是否为负数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;fu&quot;</span>);</span><br><span class="line">        n*=<span class="number">-1</span>;</span><br><span class="line">        cnt2++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> buf_n = n;      <span class="comment">//暂存n</span></span><br><span class="line">    <span class="keyword">while</span>(n&gt;=<span class="number">10</span>)        <span class="comment">//判断n的位数</span></span><br><span class="line">    &#123;</span><br><span class="line">        n/=<span class="number">10</span>;</span><br><span class="line">        cnt*=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    n = buf_n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(cnt&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> d;</span><br><span class="line">        d = n/cnt;              <span class="comment">//提取n的最高位</span></span><br><span class="line">        cnt2++;</span><br><span class="line">        <span class="keyword">if</span>(cnt2&gt;<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">&quot;yi&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">2</span>) <span class="built_in">printf</span>(<span class="string">&quot;er&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">3</span>) <span class="built_in">printf</span>(<span class="string">&quot;san&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">4</span>) <span class="built_in">printf</span>(<span class="string">&quot;si&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">5</span>) <span class="built_in">printf</span>(<span class="string">&quot;wu&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">6</span>) <span class="built_in">printf</span>(<span class="string">&quot;liu&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">7</span>) <span class="built_in">printf</span>(<span class="string">&quot;qi&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">8</span>) <span class="built_in">printf</span>(<span class="string">&quot;ba&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">9</span>) <span class="built_in">printf</span>(<span class="string">&quot;jiu&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;ling&quot;</span>);</span><br><span class="line">        n = buf_n%cnt;      <span class="comment">//去掉n的最高位</span></span><br><span class="line">        cnt/=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nnhj.github.io/2020/10/17/week3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="NNHJ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/17/week3/" class="post-title-link" itemprop="url">C语言基础 week3</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-17 20:17:45" itemprop="dateCreated datePublished" datetime="2020-10-17T20:17:45+08:00">2020-10-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-22 14:53:04" itemprop="dateModified" datetime="2020-11-22T14:53:04+08:00">2020-11-22</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一.时间换算<br>题目内容：<br>UTC是世界协调时，BJT是北京时间，UTC时间相当于BJT减去8。现在，你的程序要读入一个整数，表示BJT的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果小时不是0而分小于10分，需要保留十位上的0；如果小时是0而分小于10分的，则不需要保留十位上的0。如1124表示11点24分，而905表示9点5分，36表示0点36分，7表示0点7分。<br>有效的输入范围是0到2359，即你的程序不可能从测试服务器读到0到2359以外的输入数据。<br>你的程序要输出这个时间对应的UTC时间，输出的格式和输入的相同，即输出一个整数，表示UTC的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果小时不是0而分小于10分，需要保留十位上的0；如果小时是0而分小于10分的，则不需要保留十位上的0。<br>提醒：要小心跨日的换算。<br><strong>输入格式:</strong><br>一个整数，表示BJT的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果小时不是0而分小于10分，需要保留十位上的0；如果小时是0而分小于10分的，则不需要保留十位上的0。<br><strong>输出格式：</strong><br>一个整数，表示UTC的时和分。整数的个位和十位表示分，百位和千位表示小时。如果小时小于10，则没有千位部分；如果小时是0，则没有百位部分；如果小时不是0而分小于10分，需要保留十位上的0；如果小时是0而分小于10分的，则不需要保留十位上的0。<br><strong>输入样例：</strong><br>803<br><strong>输出样例：</strong><br>3<br>时间限制：500ms内存限制：32000kb</p>
-<p>思路：获得时间后，先用变量除以100获得它的千位/百位h（<em>即小时数</em>）。<br>然后对h进行判断。<br>若h大于23或小于0，即输入的的时间错误，然后输出提示信息；<br>若h大于等于0且小于8，即换算需要跨日，所以换算时要加上24；<br>若h大于或等于8且小于等于23时，可直接换算。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> bjt;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;bjt); </span><br><span class="line">    <span class="keyword">int</span> h=bjt/<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">int</span> min=bjt%<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">int</span> utc;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(h&gt;<span class="number">23</span>||h&lt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;输入时间错误！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(h&gt;=<span class="number">0</span>&amp;&amp;h&lt;<span class="number">8</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        h=h<span class="number">-8</span>+<span class="number">24</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,utc=h*<span class="number">100</span>+min);</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(h&lt;=<span class="number">23</span>&amp;&amp;h&gt;=<span class="number">8</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        h=h<span class="number">-8</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,utc=h*<span class="number">100</span>+min);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    fflush(<span class="built_in">stdin</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>二.分队列<br>题目内容：<br>班级第一次列队，通常老师会让同学按身高排成一列，然后1、2报数，喊到1的同学向前一 步，就这样，队伍就变成两列了。假设现在一个班级有n个同学，并且他们已经按身高排成 了一列，同学按身高从1到n编号，你能告诉我最后哪些编号的同学站在了第一列么?   </p>
-<blockquote>
-<p><strong>输入格式:</strong><br>输入一个正整数n，表示班级的人数。<br><strong>输出格式：</strong><br>按顺序输出所有在第一列的同学对应的编号，每两个编号之间用一个空格隔开，最后一个编号后面没有空格。<br><strong>输入样例：</strong><br>11<br><strong>输出样例：</strong><br>1 3 5 7 9 11<br>时间限制：500ms内存限制：32000kb</p>
-</blockquote>
-<p>思路：输出编号的思路不难。但要按格式输出便有点不容易。<br>这里参考了<a target="_blank" rel="noopener" href="https://blog.csdn.net/melody_1016/article/details/81085897">melody_jae的文章</a>。<br>先对输入的n进行判断。<br>若n为奇数，则让for循环在输出后带空格输出到n的前一位，然后再输出n；<br>若n为偶数，则让for循环在输出后带空格输出到n-1的前一位，然后再输出n-1。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (i=<span class="number">1</span>; i &lt;n; i+=<span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (n%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;n<span class="number">-1</span>; i+=<span class="number">2</span>)</span><br><span class="line">       &#123;</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,i);</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    fflush(<span class="built_in">stdin</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>test</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/24/about-me/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -355,7 +273,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
